@@ -1,6 +1,4 @@
-# Lake pollution box model: analytical solution
-# Author: Shadmin Islam Prova
-# Course: GMT-508, MS Disaster Science and Climate Resilience, University of Dhaka
+# Lake pollution box model
 
 rm(list = ls())
 
