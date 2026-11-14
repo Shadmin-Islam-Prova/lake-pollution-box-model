@@ -44,10 +44,6 @@ The lake needs much longer to reach its steady state.
 
 No extra packages are needed.
 
-## Course
-
-GMT-508, MS in Disaster Science and Climate Resilience, University of Dhaka.
-
 ## Author
 
 Shadmin Islam Prova
