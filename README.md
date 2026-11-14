@@ -1,18 +1,12 @@
 # Lake Pollution Box Model
+# it models how pollutant concentration changes in a lake.
+Two rivers bring polluted water into the lake where the lake is treated as one well-mixed box.
 
-This R script models how pollutant concentration changes in a lake.
-Two rivers bring polluted water into the lake.
-The lake is treated as one well-mixed box.
+## Eq
 
-## Equation
+Mass balance of the lake: V dC/dt = Q1·C1 + Q2·C2 − (Q1 + Q2)·C
 
-The lake follows this mass balance:
-
-V dC/dt = Q1·C1 + Q2·C2 − (Q1 + Q2)·C
-
-The analytical solution is:
-
-C(t) = Cs + (C0 − Cs) · exp(−(Q1 + Q2)·t / V)
+The analytical solution is: C(t) = Cs + (C0 − Cs) · exp(−(Q1 + Q2)·t / V)
 
 Here Cs = (Q1·C1 + Q2·C2) / (Q1 + Q2) is the steady-state concentration.
 
