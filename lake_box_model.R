@@ -11,19 +11,19 @@ Q2 <- 100         # Discharge of river 2 (m3/s)
 V  <- 1e8         # Lake volume (m3)
 
 # Simplifications
-a <- Q1 * C1 + Q2 * C2     # Inflow of pollutant (kg/s)
-b <- Q1 + Q2               # Total outflow (m3/s)
+a <- Q1 * C1 + Q2 * C2     # Pollutant inflow (kg/s)
+b <- Q1 + Q2               # Total flow (m3/s)
 
 # Time grid: 0 to 1 day, in seconds
-t <- seq(0, 86400, by = 60)
+time <- seq(0, 86400, by = 60)
 
 # Analytical solution
-C <- (a + (b * C0 - a) * exp(-b * t / V)) / b
+C <- (a + (b * C0 - a) * exp(-b * time / V)) / b
 
 # Result after 1 day
 cat("Concentration after 1 day:", tail(C, 1), "kg/m3\n")
 
 # Plot
-plot(t / 3600, C, type = "l", col = "blue", lwd = 2,
+plot(time / 3600, C, type = "l", col = "blue", lwd = 2,
      xlab = "Time (hours)", ylab = "Concentration (kg/m3)",
      main = "Analytical Solution for Concentration in Lake")
