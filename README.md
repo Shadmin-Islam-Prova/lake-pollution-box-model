@@ -21,7 +21,7 @@ Cs = (Q1·C1 + Q2·C2) / (Q1 + Q2)
 
 ## Result
 
-![Lake concentration](2504_shadmin%20islam%20prova.png)
+![Lake concentration](2504_Shadmin%20Islam%20Prova.png)
 
 The lake reaches steady state after about 54 days.
 
