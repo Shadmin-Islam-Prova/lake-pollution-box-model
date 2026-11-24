@@ -1,42 +1,33 @@
 # Lake Pollution Box Model
-# it models how pollutant concentration changes in a lake.
-Two rivers bring polluted water into the lake where the lake is treated as one well-mixed box.
 
-## Eq
+Analytical solution of a lake with two river inflows. The lake is one well-mixed box.
 
-Mass balance of the lake: V dC/dt = Q1·C1 + Q2·C2 − (Q1 + Q2)·C
+## Equation
 
-The analytical solution is: C(t) = Cs + (C0 − Cs) · exp(−(Q1 + Q2)·t / V)
+C(t) = Cs + (C0 − Cs) · exp(−(Q1 + Q2)·t / V)
 
-Here Cs = (Q1·C1 + Q2·C2) / (Q1 + Q2) is the steady-state concentration.
+Cs = (Q1·C1 + Q2·C2) / (Q1 + Q2)
 
 ## Parameters
 
-| Symbol | Meaning | Value | Unit |
-|---|---|---|---|
-| C0 | Initial lake concentration | 0 | kg/m3 |
-| C1 | River 1 concentration | 0.002 | kg/m3 |
-| C2 | River 2 concentration | 0.001 | kg/m3 |
-| Q1 | River 1 discharge | 7 | m3/s |
-| Q2 | River 2 discharge | 100 | m3/s |
-| V | Lake volume | 1 × 10^8 | m3 |
-| t | Simulation time | 1 day | s |
+| Symbol | Value | Unit |
+|---|---|---|
+| C0 | 0 | kg/m3 |
+| C1 | 0.002 | kg/m3 |
+| C2 | 0.001 | kg/m3 |
+| Q1 | 7 | m3/s |
+| Q2 | 100 | m3/s |
+| V | 1 × 10^8 | m3 |
 
 ## Result
 
-![Lake concentration over time](lake_concentration.png)
+![Lake concentration](lake_concentration.png)
 
-Concentration rises almost in a straight line during the first day.
-This happens because the lake is very large compared to the river inflow.
-The lake needs much longer to reach its steady state.
+The lake reaches steady state after about 54 days.
 
-## How to run
+## Run
 
-1. Install R from https://cran.r-project.org
-2. Open `lake_box_model.R` in RStudio.
-3. Click "Source".
-
-No extra packages are needed.
+Open `lake_box_model.R` in R or RStudio and run it. No extra packages are needed.
 
 ## Author
 
