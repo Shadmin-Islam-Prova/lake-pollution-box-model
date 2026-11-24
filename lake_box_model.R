@@ -9,25 +9,21 @@ C2 <- 0.001       # Pollutant concentration in river 2 (kg/m3)
 Q1 <- 7           # Discharge of river 1 (m3/s)
 Q2 <- 100         # Discharge of river 2 (m3/s)
 V  <- 1e8         # Lake volume (m3)
-dt <- 1           # Time step (s)
-total_time <- 86400  # Total time: 1 day (s)
 
-# Time grid
-time <- seq(0, total_time, by = dt)
+# Simplifications
+a <- Q1 * C1 + Q2 * C2     # Inflow of pollutant (kg/s)
+b <- Q1 + Q2               # Total outflow (m3/s)
 
-# Analytical solution of the well-mixed lake
-Q <- Q1 + Q2
-C_steady <- (Q1 * C1 + Q2 * C2) / Q
-concentration <- C_steady + (C0 - C_steady) * exp(-Q * time / V)
+# Time grid: 0 to 1 day, in seconds
+t <- seq(0, 86400, by = 60)
 
-# Plot on screen
-plot(time / 3600, concentration, type = "l", col = "blue", lwd = 2,
+# Analytical solution
+C <- (a + (b * C0 - a) * exp(-b * t / V)) / b
+
+# Result after 1 day
+cat("Concentration after 1 day:", tail(C, 1), "kg/m3\n")
+
+# Plot
+plot(t / 3600, C, type = "l", col = "blue", lwd = 2,
      xlab = "Time (hours)", ylab = "Concentration (kg/m3)",
      main = "Analytical Solution for Concentration in Lake")
-
-# Save the plot as a PNG file
-png("lake_concentration.png", width = 600, height = 450)
-plot(time / 3600, concentration, type = "l", col = "blue", lwd = 2,
-     xlab = "Time (hours)", ylab = "Concentration (kg/m3)",
-     main = "Analytical Solution for Concentration in Lake")
-dev.off()
