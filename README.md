@@ -29,6 +29,3 @@ The lake reaches steady state after about 54 days.
 
 Open `lake_box_model.R` in R or RStudio and run it. No extra packages are needed.
 
-## Author
-
-Shadmin Islam Prova
